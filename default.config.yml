@@ -1,21 +1,31 @@
 ---
 downloads: ~/.ansible-downloads/
 
-configure_dotfiles: true
-configure_terminal: true
-configure_osx: true
+configure_dotfiles: false
+configure_terminal: false
+configure_osx: false
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: false
-dockitems_remove: []
-# - Launchpad
-# - TV
-# - Podcasts
-# - 'App Store'
-dockitems_persist: []
-# - name: "Sublime Text"
-#   path: "/Applications/Sublime Text.app/"
-#   pos: 5
+dockitems_remove:
+ - TV
+ - Podcasts
+ - Launchpad
+ - Music
+ - Messages
+ - Mail
+ - Photos
+dockitems_persist:
+ - name: "Google Chrome"
+   path: "/Applications/Google Chrome.app/"
+   pos: 1
+ - name: "Firefox"
+   path: "/Applications/Firefox.app/"
+   pos: 2
+ - name: "iTerm"
+   path: "/Applications/iTerm.app/"
+   pos: 3
+
 
 configure_sudoers: false
 sudoers_custom_config: ''
@@ -24,44 +34,50 @@ sudoers_custom_config: ''
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
-dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
-dotfiles_files:
-  - .zshrc
-  - .gitignore
-  - .inputrc
-  - .osx
-  - .vimrc
-
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
-  - autoconf
+  - coreutils
+  - diffutils
+  - findutils
+  - gawk
+  - { name: gnu-sed, install_options: "default-names"}
+  - { name: gnu-tar, install_options: "default-names"}
+  - gzip
+  - watch
+  - rsync
+  - ansible
   - bash-completion
-  - doxygen
-  - gettext
-  - gifsicle
   - git
-  - github/gh/gh
-  - go
   - gpg
-  - httpie
-  - iperf
-  - libevent
-  - sqlite
-  - mcrypt
   - nmap
-  - node
-  - nvm
-  - php
   - ssh-copy-id
-  - cowsay
-  - readline
   - openssl
   - pv
   - wget
-  - wrk
-  - zsh-history-substring-search
+  - vim 
+  - git-delta
+  - zsh
+  - zsh-syntax-highlighting
+  - htop
+  - fzf
+  - bat
+  - ripgrep
+  - jq
+  - watch
+  - black
+  - pyenv
+  - pyenv-virtualenv
+  - aria2
+  - readline
+  - sqlite3
+  - xz
+  - zlib
+  - clintmod/formulas/macprefs
+  - { name: vim, install_options: "with-luajit,override-system-vi" }
+  - pgcli
+  - awscli
+  - node
+  - mosh
+  - MisterTea/et/et
 
 homebrew_taps:
   - homebrew/core
@@ -69,25 +85,47 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - chromedriver
-  - docker
-  - dropbox
+  # - docker
+  # - docker-compose
   - firefox
-  - google-chrome
-  - handbrake
-  - licecap
-  - sequel-ace
   - slack
-  - sublime-text
-  - transmit
-  - vagrant
+  - telegram
+  - whatsapp
+  - iterm2
+  - visual-studio-code
+  - maccy
+  - numi
+  - kap
+  - inkscape
+  - amethyst
+  - google-drive
+  - menumeters
+  - coconutbattery
+  - monodraw
+  - krita
+  - gimp
+  - vlc
+  - zoom
+  - calibre
+  - bartender
+  - microsoft-edge
+  - scummvm
+  - github
+  - gh
+  - bitbar
+  - postman
 
 # See `geerlingguy.mas` role documentation for usage instructions.
-mas_installed_apps: []
+mas_installed_apps:
+  - { id: 937984704, name: "Amphetamine" }
+  - { id: 688211836, name: "EasyRes" }
+  - { id: 1451462297, name: "MultiCam" }
+  - { id: 595117824, name: "EpochTime" }
+
 mas_email: ""
 mas_password: ""
 
-osx_script: "~/.osx --no-restart"
+# osx_script: "~/.osx --no-restart"
 
 # Install packages from other package managers.
 # Note: You are responsible for making sure the required package managers are
